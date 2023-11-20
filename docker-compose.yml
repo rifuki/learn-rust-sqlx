@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  mariadb:
+    container_name: docker-mariadb-rust-sqlx
+    image: mariadb:latest
+    ports:
+      - ${DB_PORT}:3306
+    volumes:
+      - './mariadb-data:/var/lib/mysql'
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
